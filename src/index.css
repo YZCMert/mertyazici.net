@@ -2,14 +2,17 @@
 
 @theme {
   --font-sans: "Inter", sans-serif;
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Crimson Pro", Georgia, serif;
   --font-mono: "Fira Code", "Courier New", monospace;
+  --font-hero: "Array", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html.lenis, html.lenis body {
@@ -126,6 +129,29 @@ body {
 .text-outline {
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
   -webkit-text-fill-color: transparent;
+}
+
+/* Hero name shimmer */
+@keyframes shimmer-sweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.hero-name {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.92) 0%,
+    rgba(255,255,255,0.92) 38%,
+    rgba(255,200,200,1) 50%,
+    rgba(255,255,255,0.92) 62%,
+    rgba(255,255,255,0.92) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 4s ease-in-out infinite;
+  animation-delay: 2s;
 }
 
 /* Reduced motion */

@@ -103,7 +103,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* Content */}
-      <section className="px-6 py-32 md:px-16 lg:px-32">
+      <section className="mx-auto w-full max-w-7xl px-6 py-32 md:px-16 lg:px-24">
         <div className="mx-auto max-w-5xl">
           {/* About */}
           <motion.div

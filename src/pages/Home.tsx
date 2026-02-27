@@ -38,7 +38,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', check)
   }, [])
 
-  const selectedProjects = projects.slice(0, 3)
+  const selectedProjects = projects.slice(0, 10)
 
   return (
     <motion.div
@@ -57,7 +57,7 @@ export default function Home() {
           </Suspense>
         )}
 
-        <div className="relative z-20 flex w-full max-w-5xl flex-col items-center gap-8 px-6">
+        <div className="relative z-20 flex w-full max-w-5xl flex-col items-center gap-5 px-6 md:gap-8">
           <motion.div
             className="flex items-center gap-3 font-mono text-[10px] font-light tracking-[0.5em] text-white/40 uppercase"
             initial={{ opacity: 0, y: -20 }}
@@ -84,11 +84,16 @@ export default function Home() {
           </motion.div>
 
           <div className="relative my-6">
-            <h1 className="font-display text-center text-7xl font-normal tracking-[0.02em] md:text-9xl lg:text-[11rem]">
+            <motion.h1
+              className="hero-name font-hero text-center text-[10vw] font-bold uppercase leading-none tracking-[0.04em] whitespace-nowrap md:text-[8vw] lg:text-[7vw]"
+              initial={{ filter: 'blur(12px)', scale: 0.95 }}
+              animate={{ filter: 'blur(0px)', scale: 1 }}
+              transition={{ delay: 0.5, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+            >
               <TextReveal text={t('hero.firstName')} mode="character" trigger="immediate" delay={0.6} />
               <span className="inline-block w-[0.3em]" />
               <TextReveal text={t('hero.lastName')} mode="character" trigger="immediate" delay={0.8} />
-            </h1>
+            </motion.h1>
             <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-15">
               <RotatingText3D texts={['DEVELOPER', 'ENGINEER', 'CREATOR']} className="w-full" />
             </div>
@@ -128,14 +133,14 @@ export default function Home() {
               <ellipse cx="12" cy="12" rx="4" ry="10" />
               <line x1="2" y1="12" x2="22" y2="12" />
             </svg>
-            <span className="font-mono text-[10px] font-light tracking-[0.4em] text-white/40 uppercase">
+            <span className="font-mono text-[10px] font-light tracking-[0.2em] text-white/40 uppercase md:tracking-[0.4em]">
               {t('hero.location')}
             </span>
           </motion.div>
         </div>
 
         <motion.div
-          className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
@@ -152,8 +157,8 @@ export default function Home() {
       </section>
 
       {/* ===== SECTION 1: INTRO ===== */}
-      <section className="px-6 py-40 md:px-16 lg:px-32">
-        <div className="mx-auto max-w-5xl text-center">
+      <section className="px-4 py-40 md:px-10 lg:px-20">
+        <div className="mx-auto max-w-6xl text-center">
           <h2
             className="mb-12 font-display text-4xl leading-[1.15] text-white/90 md:text-5xl lg:text-6xl"
           >
@@ -171,21 +176,21 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-6 md:px-16 lg:px-32">
+      <div className="mx-auto max-w-6xl px-4 md:px-10 lg:px-20">
         <SectionDivider />
       </div>
 
       {/* ===== SECTION 2: EXPERTISE ===== */}
-      <section className="bg-white/[0.02] px-6 py-40 md:px-16 lg:px-32">
-        <div className="mx-auto max-w-5xl">
+      <section className="px-4 py-40 md:px-10 lg:px-20">
+        <div className="mx-auto max-w-6xl">
           <motion.div
-            className="mb-16 text-center"
+            className="mb-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-[10px] font-light tracking-[0.5em] text-white/35 uppercase">
+            <span className="font-mono text-[13px] font-light tracking-[0.5em] text-white/35 uppercase">
               {t('home.expertise.title')}
             </span>
           </motion.div>
@@ -194,17 +199,17 @@ export default function Home() {
             {expertiseData.map(({ key, icon }) => (
               <motion.div
                 key={key}
-                className="group flex flex-col items-center px-8 py-14 text-center transition-all duration-500 hover:bg-white/[0.02]"
+                className="group flex flex-col items-center px-6 py-16 text-center transition-all duration-500 hover:bg-[#9C9C9C]/[0.05]"
                 whileHover={{ y: -2 }}
                 transition={{ type: 'tween', duration: 0.4, ease: 'easeOut' }}
               >
-                <div className="mb-8 flex h-12 w-12 items-center justify-center transition-colors duration-500">
-                  <FontAwesomeIcon icon={icon} className="text-base text-white/40 transition-colors duration-500 group-hover:text-white/60" />
+                <div className="mb-10 flex h-14 w-14 items-center justify-center transition-colors duration-500">
+                  <FontAwesomeIcon icon={icon} className="text-lg text-white/40 transition-colors duration-500 group-hover:text-white/60" />
                 </div>
-                <h4 className="mb-4 font-sans text-xs font-medium tracking-[0.2em] uppercase text-white/90">
+                <h4 className="mb-5 font-sans text-sm font-medium tracking-[0.2em] uppercase text-white/90">
                   {t(`home.expertise.${key}.title`)}
                 </h4>
-                <p className="text-[13px] font-light leading-[1.7] text-white/40">
+                <p className="text-[15px] font-light leading-[1.7] text-white/40">
                   {t(`home.expertise.${key}.desc`)}
                 </p>
               </motion.div>
@@ -212,7 +217,7 @@ export default function Home() {
           </StaggerReveal>
 
           <motion.div
-            className="mt-14 text-center"
+            className="mt-16 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -220,75 +225,56 @@ export default function Home() {
           >
             <Link
               to="/hizmetler"
-              className="group inline-flex items-center gap-4 font-mono text-[10px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
+              className="group inline-flex items-center gap-4 font-mono text-[13px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
             >
               <ScrambleText text={t('home.expertise.allServices')} />
-              <FontAwesomeIcon icon={faArrowRight} className="text-[10px] transition-transform duration-500 group-hover:translate-x-1" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-[13px] transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-6 md:px-16 lg:px-32">
+      <div className="mx-auto max-w-6xl px-4 md:px-10 lg:px-20">
         <SectionDivider />
       </div>
 
       {/* ===== SECTION 3: SELECTED WORK ===== */}
-      <section className="px-6 py-40 md:px-16 lg:px-32">
-        <div className="mx-auto max-w-5xl">
+      <section className="px-4 py-40 md:px-10 lg:px-20">
+        <div className="mx-auto max-w-6xl">
           <motion.div
-            className="mb-16 text-center"
+            className="mb-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="font-mono text-[10px] font-light tracking-[0.5em] text-white/35 uppercase">
+            <span className="font-mono text-[13px] font-light tracking-[0.5em] text-white/35 uppercase">
               {t('home.selectedWork')}
             </span>
           </motion.div>
 
-          <StaggerReveal className="flex flex-col border-t border-white/[0.10]" staggerDelay={0.12}>
-            {selectedProjects.map((project, i) => (
+          <StaggerReveal className="flex flex-col" staggerDelay={0.08}>
+            {selectedProjects.map((project) => (
               <Link
                 key={project.id}
                 to={`/calismalar/${project.slug}`}
-                className="group flex items-center border-b border-white/[0.10] py-8 no-underline transition-all duration-500 md:py-10"
+                className="group flex items-center justify-between py-4 no-underline transition-colors duration-300"
               >
-                {/* Color bar */}
-                <div className={`mr-6 hidden h-14 w-1 rounded-full bg-gradient-to-b ${project.color} opacity-40 transition-opacity duration-500 group-hover:opacity-90 md:block`} />
-
-                {/* Number */}
-                <span className="mr-6 w-8 shrink-0 font-mono text-xs tabular-nums text-white/20 md:mr-4">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-
-                {/* Title */}
-                <h4 className="flex-1 text-xl font-medium tracking-wide text-white/90 transition-all duration-500 group-hover:translate-x-2 group-hover:text-white md:text-3xl lg:text-4xl">
+                <span className="w-1/3 font-mono text-base uppercase tracking-wide text-white/80 transition-colors duration-300 group-hover:text-white">
                   <ScrambleText text={project.title} />
-                </h4>
-
-                {/* Category + Year */}
-                <div className="hidden items-center gap-8 md:flex">
-                  <span className="font-mono text-[10px] font-light tracking-[0.25em] text-white/30 uppercase">
-                    {project.category}
-                  </span>
-                  <span className="font-mono text-[10px] tabular-nums text-white/20">
-                    {project.year}
-                  </span>
-                </div>
-
-                {/* Arrow */}
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="ml-8 text-xs text-white/0 transition-all duration-500 group-hover:translate-x-1 group-hover:text-white/50"
-                />
+                </span>
+                <span className="hidden flex-1 font-mono text-[13px] uppercase tracking-[0.2em] text-[#9C9C9C] md:block">
+                  {project.category}
+                </span>
+                <span className="shrink-0 text-right font-mono text-[13px] uppercase tracking-[0.15em] text-[#9C9C9C]">
+                  {project.technologies.join(', ')}
+                </span>
               </Link>
             ))}
           </StaggerReveal>
 
           <motion.div
-            className="mt-14 text-center"
+            className="mt-16 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -296,21 +282,21 @@ export default function Home() {
           >
             <Link
               to="/calismalar"
-              className="group inline-flex items-center gap-4 font-mono text-[10px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
+              className="group inline-flex items-center gap-4 font-mono text-[13px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
             >
               <ScrambleText text={t('home.allWork')} />
-              <FontAwesomeIcon icon={faArrowRight} className="text-[10px] transition-transform duration-500 group-hover:translate-x-1" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-[13px] transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-5xl px-6 md:px-16 lg:px-32">
+      <div className="mx-auto max-w-6xl px-4 md:px-10 lg:px-20">
         <SectionDivider />
       </div>
 
       {/* ===== SECTION 4: CTA ===== */}
-      <section className="bg-white/[0.02] px-6 py-48 md:px-16 lg:px-32">
+      <section className="px-4 py-48 md:px-10 lg:px-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <motion.h2
             className="mb-16 font-display text-4xl font-normal leading-[1.1] text-white/95 md:text-6xl lg:text-7xl"

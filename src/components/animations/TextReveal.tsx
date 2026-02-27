@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useMemo } from 'react'
 
 interface TextRevealProps {
   text: string
@@ -21,7 +21,10 @@ export default function TextReveal({
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
-  const parts = mode === 'character' ? text.split('') : text.split(' ')
+  const parts = useMemo(
+    () => mode === 'character' ? text.split('') : text.split(' '),
+    [text, mode],
+  )
   const shouldAnimate = trigger === 'immediate' || isInView
 
   return (

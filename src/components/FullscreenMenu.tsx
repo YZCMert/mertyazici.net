@@ -9,9 +9,9 @@ interface FullscreenMenuProps {
 }
 
 const socialLinks = [
-  { label: 'INSTAGRAM', href: '#' },
-  { label: 'BEHANCE', href: '#' },
-  { label: 'GITHUB', href: '#' },
+  { label: 'INSTAGRAM', href: 'https://instagram.com/yzc.mert' },
+  { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/yzcmert/' },
+  { label: 'GITHUB', href: 'https://github.com/jnrmert' },
 ]
 
 const overlayVariants = {
@@ -120,7 +120,7 @@ export default function FullscreenMenu({ isOpen, onClose }: FullscreenMenuProps)
               mert@mertyazici.net
             </span>
             <span className="font-mono text-xs tracking-[0.3em] text-white/30">
-              TÜRKİYE
+              TÜRKIYE
             </span>
           </motion.div>
         </motion.div>

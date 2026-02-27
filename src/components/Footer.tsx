@@ -43,7 +43,7 @@ export default function Footer() {
         <div>
           <span className="mb-3 block font-display text-sm italic text-white/35">Location</span>
           <span className="font-mono text-xs tracking-[0.2em] text-white/70 uppercase">
-            Istanbul, TR
+            Kocaeli, TR
           </span>
         </div>
 
@@ -53,8 +53,8 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             {[
               { name: 'INSTAGRAM', href: 'https://instagram.com/yzc.mert' },
-              { name: 'LINKEDIN', href: 'https://linkedin.com/in/mertyazici' },
-              { name: 'GITHUB', href: 'https://github.com/mertyazici' },
+              { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/yzcmert/' },
+              { name: 'GITHUB', href: 'https://github.com/jnrmert' },
             ].map(({ name, href }) => (
               <a
                 key={name}
@@ -89,7 +89,7 @@ export default function Footer() {
             &copy; {year} M.YAZICI &mdash; {t('footer.copyright')}
           </p>
           <p className="font-mono text-[10px] tracking-[0.3em] text-white/20 uppercase">
-            Designed &amp; Built by Mert Yazici
+            Designed &amp; Built by Mert Yazıcı
           </p>
         </div>
       </div>

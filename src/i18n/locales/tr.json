@@ -12,7 +12,7 @@
     "scroll": "Aşağı Kaydır",
     "marquee1": "FULL STACK DEVELOPER — AI ENGINEER — UI DESIGNER — ",
     "marquee2": "— OTOMASYON — YARATICI KOD — WEB GELİŞTİRME — ",
-    "location": "Türkiye"
+    "location": "Kocaeli, TR"
   },
   "home": {
     "intro": "Yaratıcı kod, mantıksal tasarım, web deneyim laboratuvarı",
@@ -52,7 +52,7 @@
       "experienceLabel": "DENEYİM",
       "projects": "50+",
       "projectsLabel": "PROJE",
-      "location": "TÜRKİYE",
+      "location": "KOCAELİ, TR",
       "locationLabel": "KONUM",
       "status": "MÜSAİT",
       "statusLabel": "DURUM"
@@ -132,14 +132,14 @@
       "email": "E-POSTA",
       "phone": "TELEFON",
       "message": "MESAJ",
-      "emailPlaceholder": "ornek@email.com",
+      "emailPlaceholder": "örnek@email.com",
       "phonePlaceholder": "+90 5XX XXX XX XX",
       "messagePlaceholder": "Mesajınızı buraya yazın...",
       "submit": "MESAJ GÖNDER"
     },
     "info": {
       "location": "KONUM",
-      "locationValue": "TÜRKİYE",
+      "locationValue": "KOCAELİ, TR",
       "email": "E-POSTA",
       "emailValue": "yzc.mert@icloud.com",
       "social": "SOSYAL MEDYA",
@@ -151,6 +151,8 @@
     }
   },
   "footer": {
+    "cta": "Birlikte bir şeyler yaratalım",
+    "available": "Müsait",
     "marquee": "BİRLİKTE ÇALIŞALIM — LET'S COLLABORATE — ",
     "copyright": "TÜM HAKLARI SAKLIDIR"
   },

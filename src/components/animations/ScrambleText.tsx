@@ -1,6 +1,7 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
+import { useInView } from 'framer-motion'
 
-const CHARS = 'ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ0123456789!@#$%&'
+const CHARS = 'ABCÇDEFGĞHIIJKLMNOÖPRSŞTUÜVYZ0123456789!@#$%&'
 
 interface ScrambleTextProps {
   text: string
@@ -14,11 +15,14 @@ export default function ScrambleText({
   scrambleSpeed = 50,
 }: ScrambleTextProps) {
   const [display, setDisplay] = useState(text)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const rafRef = useRef<number | null>(null)
   const lockedRef = useRef<Set<number>>(new Set())
+  const spanRef = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(spanRef, { once: true, margin: '-50px' })
+  const hasPlayed = useRef(false)
 
   const scramble = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
     lockedRef.current = new Set()
 
     // Collect all non-space indices
@@ -34,42 +38,62 @@ export default function ScrambleText({
     }
 
     let lockIndex = 0
+    let lastTime = 0
 
-    intervalRef.current = setInterval(() => {
-      const locked = lockedRef.current
+    function tick(time: number) {
+      if (!lastTime) lastTime = time
+      const elapsed = time - lastTime
 
-      const next = text
-        .split('')
-        .map((char, i) => {
-          if (char === ' ') return ' '
-          if (locked.has(i)) return text[i]
-          return CHARS[Math.floor(Math.random() * CHARS.length)]
-        })
-        .join('')
+      if (elapsed >= scrambleSpeed) {
+        lastTime = time
+        const locked = lockedRef.current
 
-      setDisplay(next)
+        const next = text
+          .split('')
+          .map((char, i) => {
+            if (char === ' ') return ' '
+            if (locked.has(i)) return text[i]
+            return CHARS[Math.floor(Math.random() * CHARS.length)]
+          })
+          .join('')
 
-      // Lock next random character
-      if (lockIndex < indices.length) {
-        locked.add(indices[lockIndex])
-        lockIndex++
+        setDisplay(next)
+
+        // Lock next random character
+        if (lockIndex < indices.length) {
+          locked.add(indices[lockIndex])
+          lockIndex++
+        }
+
+        if (lockIndex >= indices.length) {
+          setDisplay(text)
+          return
+        }
       }
 
-      if (lockIndex >= indices.length) {
-        if (intervalRef.current) clearInterval(intervalRef.current)
-        setDisplay(text)
-      }
-    }, scrambleSpeed)
+      rafRef.current = requestAnimationFrame(tick)
+    }
+
+    rafRef.current = requestAnimationFrame(tick)
   }, [text, scrambleSpeed])
 
   const reset = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (rafRef.current) cancelAnimationFrame(rafRef.current)
     setDisplay(text)
     lockedRef.current = new Set()
   }, [text])
 
+  // InView trigger — auto-scramble when element enters viewport
+  useEffect(() => {
+    if (isInView && !hasPlayed.current) {
+      hasPlayed.current = true
+      scramble()
+    }
+  }, [isInView, scramble])
+
   return (
     <span
+      ref={spanRef}
       className={className}
       onMouseEnter={scramble}
       onMouseLeave={reset}

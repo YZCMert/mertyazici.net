@@ -16,10 +16,10 @@ export default function Layout() {
   }, [location.pathname, lenisRef])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="flex min-h-screen flex-col bg-[#0a0a0a] text-white">
       <ScrollProgress />
       <Header />
-      <main>
+      <main className="flex flex-1 flex-col justify-center">
         <Outlet />
       </main>
       <Footer />

@@ -115,7 +115,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Mesajınız gönderildi!')
+    alert('Mesajiniz gönderildi!')
     setForm({ email: '', phone: '', message: '' })
   }
 
@@ -125,7 +125,7 @@ export default function Contact() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen px-6 pt-32 pb-20 md:px-16 lg:px-32"
+      className="mx-auto min-h-screen w-full max-w-7xl px-6 pt-32 pb-20 md:px-16 lg:px-24"
     >
       {/* Marquee band */}
       <motion.div
@@ -221,8 +221,8 @@ export default function Contact() {
             <div className="flex gap-8">
               {[
                 { name: 'INSTAGRAM', href: 'https://instagram.com/yzc.mert' },
-                { name: 'LINKEDIN', href: 'https://linkedin.com/in/mertyazici' },
-                { name: 'GITHUB', href: 'https://github.com/mertyazici' },
+                { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/yzcmert/' },
+                { name: 'GITHUB', href: 'https://github.com/jnrmert' },
               ].map(({ name, href }) => (
                 <a
                   key={name}

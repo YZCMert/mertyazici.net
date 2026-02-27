@@ -1,6 +1,6 @@
 import { lazy, Suspense, useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, MotionConfig } from 'framer-motion'
 import Layout from './components/Layout'
 import LoadingScreen from './components/LoadingScreen'
 
@@ -31,7 +31,7 @@ function App() {
   }
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <LoadingScreen isVisible={showLoading} onComplete={handleLoadingComplete} />
 
       {loadingDone && (
@@ -56,7 +56,7 @@ function App() {
           </AnimatePresence>
         </Suspense>
       )}
-    </>
+    </MotionConfig>
   )
 }
 

@@ -80,7 +80,7 @@ export default function Services() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen px-6 pt-32 pb-20 md:px-16 lg:px-32"
+      className="mx-auto min-h-screen w-full max-w-7xl px-6 pt-32 pb-20 md:px-16 lg:px-24"
     >
       {/* Title */}
       <div className="mx-auto mb-20 max-w-5xl">

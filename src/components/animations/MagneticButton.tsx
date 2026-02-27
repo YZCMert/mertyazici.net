@@ -15,14 +15,21 @@ export default function MagneticButton({
   type = 'button',
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null)
+  const rectRef = useRef<DOMRect | null>(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const springX = useSpring(x, { stiffness: 150, damping: 15 })
   const springY = useSpring(y, { stiffness: 150, damping: 15 })
 
+  function handleMouseEnter() {
+    if (ref.current) {
+      rectRef.current = ref.current.getBoundingClientRect()
+    }
+  }
+
   function handleMouseMove(e: React.MouseEvent) {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
+    const rect = rectRef.current
+    if (!rect) return
     const centerX = rect.left + rect.width / 2
     const centerY = rect.top + rect.height / 2
     x.set((e.clientX - centerX) * 0.3)
@@ -30,6 +37,7 @@ export default function MagneticButton({
   }
 
   function handleMouseLeave() {
+    rectRef.current = null
     x.set(0)
     y.set(0)
   }
@@ -40,6 +48,7 @@ export default function MagneticButton({
       type={type}
       className={`cursor-pointer ${className}`}
       style={{ x: springX, y: springY }}
+      onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       whileHover={{ scale: 1.05 }}

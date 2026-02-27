@@ -33,7 +33,7 @@ function CounterAnimation({ value, label }: { value: string; label: string }) {
 function ExpertiseCard({ title, desc, icon }: { title: string; desc: string; icon: IconDefinition }) {
   return (
     <motion.div
-      className="group px-6 py-10 text-center transition-all duration-500 hover:bg-white/[0.02]"
+      className="group px-6 py-10 text-center transition-all duration-500 hover:bg-[#9C9C9C]/[0.05]"
       whileHover={{ y: -2 }}
       transition={{ type: 'tween', duration: 0.4, ease: 'easeOut' }}
     >
@@ -53,7 +53,7 @@ export default function About() {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="min-h-screen px-6 pt-32 pb-20 md:px-16 lg:px-32"
+      className="mx-auto min-h-screen w-full max-w-7xl px-6 pt-32 pb-20 md:px-16 lg:px-24"
     >
       {/* Title */}
       <div className="mx-auto mb-20 max-w-5xl">
