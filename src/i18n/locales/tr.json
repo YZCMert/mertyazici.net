@@ -1,0 +1,162 @@
+{
+  "nav": {
+    "about": "HAKKIMDA",
+    "services": "HİZMETLER",
+    "work": "ÇALIŞMALAR",
+    "contact": "İLETİŞİM"
+  },
+  "hero": {
+    "firstName": "MERT",
+    "lastName": "YAZICI",
+    "subtitle": "Full Stack Developer & AI Engineer",
+    "scroll": "Aşağı Kaydır",
+    "marquee1": "FULL STACK DEVELOPER — AI ENGINEER — UI DESIGNER — ",
+    "marquee2": "— OTOMASYON — YARATICI KOD — WEB GELİŞTİRME — ",
+    "location": "Türkiye"
+  },
+  "home": {
+    "intro": "Yaratıcı kod, mantıksal tasarım, web deneyim laboratuvarı",
+    "introDesc": "Modern teknolojiler ve yaratıcı yaklaşımlarla kullanıcı deneyimini ön planda tutan dijital çözümler geliştiriyorum. Her proje, estetik ve performansın mükemmel dengesini kurmak için bir fırsat.",
+    "expertise": {
+      "title": "UZMANLIK ALANLARI",
+      "fullstack": {
+        "title": "Full Stack",
+        "desc": "React, .NET, TypeScript ile uçtan uca web uygulamaları"
+      },
+      "ai": {
+        "title": "AI & LLM",
+        "desc": "RAG sistemleri, fine-tuning, AI asistan geliştirme"
+      },
+      "uiux": {
+        "title": "UI/UX",
+        "desc": "Kullanıcı odaklı arayüz tasarımı, prototipleme"
+      },
+      "devops": {
+        "title": "DevOps",
+        "desc": "CI/CD, deployment, otomasyon, scripting"
+      },
+      "allServices": "Tüm Hizmetler"
+    },
+    "selectedWork": "PORTFÖYÜM",
+    "allWork": "Tüm Projeler",
+    "ctaHeading": "Birlikte harika şeyler yaratalım",
+    "ctaButton": "İletişime Geç",
+    "ctaAvailable": "YENİ PROJELER İÇİN MÜSAİT"
+  },
+  "about": {
+    "title": "HAKKIMDA",
+    "bio": "Merhaba, ben Mert Yazıcı. Full stack geliştirme ve yapay zeka mühendisliği alanlarında tutkulu bir yazılımcıyım. Modern teknolojilerle güçlü, ölçeklenebilir ve kullanıcı odaklı dijital çözümler üretiyorum.",
+    "bio2": "Her projede teknik mükemmellik ve yaratıcı tasarımı bir araya getirerek, kullanıcıların unutamayacağı deneyimler yaratmayı hedefliyorum.",
+    "stats": {
+      "experience": "5+ YIL",
+      "experienceLabel": "DENEYİM",
+      "projects": "50+",
+      "projectsLabel": "PROJE",
+      "location": "TÜRKİYE",
+      "locationLabel": "KONUM",
+      "status": "MÜSAİT",
+      "statusLabel": "DURUM"
+    },
+    "expertise": {
+      "title": "UZMANLIK ALANLARI",
+      "fullstack": {
+        "title": "Full Stack",
+        "desc": "React, Node.js, .NET, TypeScript ile uçtan uca web uygulamaları"
+      },
+      "ai": {
+        "title": "AI & LLM",
+        "desc": "LLM entegrasyonu, RAG sistemleri, fine-tuning, AI asistan geliştirme"
+      },
+      "uiux": {
+        "title": "UI/UX",
+        "desc": "Kullanıcı deneyimi odaklı arayüz tasarımı, prototipleme"
+      },
+      "devops": {
+        "title": "DevOps",
+        "desc": "CI/CD, deployment, otomasyon, scripting"
+      }
+    }
+  },
+  "services": {
+    "title": "HİZMETLER",
+    "cta": "Birlikte Çalışalım",
+    "techMarquee": "REACT — TYPESCRIPT — .NET — PYTHON — OLLAMA — FIGMA — DOCKER — ",
+    "items": {
+      "fullstack": {
+        "num": "01",
+        "title": "FULL STACK GELİŞTİRME",
+        "desc": "React, Node.js, .NET, TypeScript ile uçtan uca web uygulamaları. API tasarımı, veritabanı mimarisi ve frontend geliştirme.",
+        "tags": ["React", "TypeScript", ".NET", "Node.js", "SQL Server", "PostgreSQL"]
+      },
+      "ai": {
+        "num": "02",
+        "title": "AI & LLM MÜHENDİSLİĞİ",
+        "desc": "LLM entegrasyonu, RAG sistemleri, fine-tuning, AI asistan geliştirme. Ollama, OpenAI API ve özel model eğitimi.",
+        "tags": ["Python", "Ollama", "RAG", "Fine-tuning", "LangChain", "Vector DB"]
+      },
+      "uiux": {
+        "num": "03",
+        "title": "UI/UX TASARIM",
+        "desc": "Kullanıcı deneyimi odaklı arayüz tasarımı, prototipleme, design system oluşturma. Modern ve minimalist yaklaşım.",
+        "tags": ["Figma", "Tailwind CSS", "Framer Motion", "Responsive"]
+      },
+      "devops": {
+        "num": "04",
+        "title": "DevOps & OTOMASYON",
+        "desc": "CI/CD pipeline kurulumu, deployment otomasyonu, iş süreçleri otomasyonu, scripting ve sistem yönetimi.",
+        "tags": ["Docker", "IIS", "GitHub Actions", "Linux", "PowerShell"]
+      }
+    }
+  },
+  "work": {
+    "title": "ÇALIŞMALAR",
+    "featured": "ÖNE ÇIKAN"
+  },
+  "projectDetail": {
+    "about": "PROJE HAKKINDA",
+    "description": "AÇIKLAMA",
+    "purpose": "AMAÇ",
+    "technical": "TEKNİK DETAYLAR",
+    "architecture": "MİMARİ",
+    "technologies": "TEKNOLOJİLER",
+    "prev": "ÖNCEKİ PROJE",
+    "next": "SONRAKİ PROJE",
+    "allWork": "Tüm Çalışmalar"
+  },
+  "contact": {
+    "title": "İLETİŞİM",
+    "marquee": "İLETİŞİME GEÇ — LET'S WORK TOGETHER — ",
+    "heading": "Bir sonraki projeniz için konuşalım",
+    "form": {
+      "subtitle": "MESAJ BIRAKIN",
+      "email": "E-POSTA",
+      "phone": "TELEFON",
+      "message": "MESAJ",
+      "emailPlaceholder": "ornek@email.com",
+      "phonePlaceholder": "+90 5XX XXX XX XX",
+      "messagePlaceholder": "Mesajınızı buraya yazın...",
+      "submit": "MESAJ GÖNDER"
+    },
+    "info": {
+      "location": "KONUM",
+      "locationValue": "TÜRKİYE",
+      "email": "E-POSTA",
+      "emailValue": "yzc.mert@icloud.com",
+      "social": "SOSYAL MEDYA",
+      "available": "MÜSAİT SERBEST ÇALIŞAN",
+      "expertise": "İŞ ALANLARI",
+      "expertiseValue": "Full Stack, AI & LLM, UI/UX, DevOps",
+      "status": "DURUM",
+      "statusValue": "Müsait"
+    }
+  },
+  "footer": {
+    "marquee": "BİRLİKTE ÇALIŞALIM — LET'S COLLABORATE — ",
+    "copyright": "TÜM HAKLARI SAKLIDIR"
+  },
+  "loading": {
+    "line1": "Full Stack",
+    "line2": "AI & LLM",
+    "line3": "Creative Developer"
+  }
+}

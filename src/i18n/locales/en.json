@@ -1,0 +1,162 @@
+{
+  "nav": {
+    "about": "ABOUT",
+    "services": "SERVICES",
+    "work": "WORK",
+    "contact": "CONTACT"
+  },
+  "hero": {
+    "firstName": "MERT",
+    "lastName": "YAZICI",
+    "subtitle": "Full Stack Developer & AI Engineer",
+    "scroll": "Scroll Down",
+    "marquee1": "FULL STACK DEVELOPER — AI ENGINEER — UI DESIGNER — ",
+    "marquee2": "— AUTOMATION — CREATIVE CODE — WEB DEVELOPMENT — ",
+    "location": "Turkey"
+  },
+  "home": {
+    "intro": "Creative code, logical design, web experience laboratory",
+    "introDesc": "I develop digital solutions that prioritize user experience with modern technologies and creative approaches. Each project is an opportunity to achieve the perfect balance of aesthetics and performance.",
+    "expertise": {
+      "title": "EXPERTISE",
+      "fullstack": {
+        "title": "Full Stack",
+        "desc": "End-to-end web applications with React, .NET, TypeScript"
+      },
+      "ai": {
+        "title": "AI & LLM",
+        "desc": "RAG systems, fine-tuning, AI assistant development"
+      },
+      "uiux": {
+        "title": "UI/UX",
+        "desc": "User-focused interface design, prototyping"
+      },
+      "devops": {
+        "title": "DevOps",
+        "desc": "CI/CD, deployment, automation, scripting"
+      },
+      "allServices": "All Services"
+    },
+    "selectedWork": "MY PORTFOLIO",
+    "allWork": "All Projects",
+    "ctaHeading": "Let's create amazing things together",
+    "ctaButton": "Get in Touch",
+    "ctaAvailable": "AVAILABLE FOR NEW PROJECTS"
+  },
+  "about": {
+    "title": "ABOUT",
+    "bio": "Hi, I'm Mert Yazıcı. I'm a passionate developer specializing in full stack development and AI engineering. I build powerful, scalable, and user-centric digital solutions with modern technologies.",
+    "bio2": "In every project, I aim to combine technical excellence with creative design to create unforgettable user experiences.",
+    "stats": {
+      "experience": "5+ YEARS",
+      "experienceLabel": "EXPERIENCE",
+      "projects": "50+",
+      "projectsLabel": "PROJECTS",
+      "location": "TURKEY",
+      "locationLabel": "LOCATION",
+      "status": "AVAILABLE",
+      "statusLabel": "STATUS"
+    },
+    "expertise": {
+      "title": "EXPERTISE",
+      "fullstack": {
+        "title": "Full Stack",
+        "desc": "End-to-end web applications with React, Node.js, .NET, TypeScript"
+      },
+      "ai": {
+        "title": "AI & LLM",
+        "desc": "LLM integration, RAG systems, fine-tuning, AI assistant development"
+      },
+      "uiux": {
+        "title": "UI/UX",
+        "desc": "User experience focused interface design, prototyping"
+      },
+      "devops": {
+        "title": "DevOps",
+        "desc": "CI/CD, deployment, automation, scripting"
+      }
+    }
+  },
+  "services": {
+    "title": "SERVICES",
+    "cta": "Let's Work Together",
+    "techMarquee": "REACT — TYPESCRIPT — .NET — PYTHON — OLLAMA — FIGMA — DOCKER — ",
+    "items": {
+      "fullstack": {
+        "num": "01",
+        "title": "FULL STACK DEVELOPMENT",
+        "desc": "End-to-end web applications with React, Node.js, .NET, TypeScript. API design, database architecture, and frontend development.",
+        "tags": ["React", "TypeScript", ".NET", "Node.js", "SQL Server", "PostgreSQL"]
+      },
+      "ai": {
+        "num": "02",
+        "title": "AI & LLM ENGINEERING",
+        "desc": "LLM integration, RAG systems, fine-tuning, AI assistant development. Ollama, OpenAI API and custom model training.",
+        "tags": ["Python", "Ollama", "RAG", "Fine-tuning", "LangChain", "Vector DB"]
+      },
+      "uiux": {
+        "num": "03",
+        "title": "UI/UX DESIGN",
+        "desc": "User experience focused interface design, prototyping, design system creation. Modern and minimalist approach.",
+        "tags": ["Figma", "Tailwind CSS", "Framer Motion", "Responsive"]
+      },
+      "devops": {
+        "num": "04",
+        "title": "DevOps & AUTOMATION",
+        "desc": "CI/CD pipeline setup, deployment automation, business process automation, scripting and system management.",
+        "tags": ["Docker", "IIS", "GitHub Actions", "Linux", "PowerShell"]
+      }
+    }
+  },
+  "work": {
+    "title": "WORK",
+    "featured": "FEATURED"
+  },
+  "projectDetail": {
+    "about": "ABOUT PROJECT",
+    "description": "DESCRIPTION",
+    "purpose": "PURPOSE",
+    "technical": "TECHNICAL DETAILS",
+    "architecture": "ARCHITECTURE",
+    "technologies": "TECHNOLOGIES",
+    "prev": "PREVIOUS PROJECT",
+    "next": "NEXT PROJECT",
+    "allWork": "All Work"
+  },
+  "contact": {
+    "title": "CONTACT",
+    "marquee": "GET IN TOUCH — LET'S WORK TOGETHER — ",
+    "heading": "Let's talk about your next project",
+    "form": {
+      "subtitle": "LEAVE A MESSAGE",
+      "email": "EMAIL",
+      "phone": "PHONE",
+      "message": "MESSAGE",
+      "emailPlaceholder": "example@email.com",
+      "phonePlaceholder": "+90 5XX XXX XX XX",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "SEND MESSAGE"
+    },
+    "info": {
+      "location": "LOCATION",
+      "locationValue": "TURKEY",
+      "email": "EMAIL",
+      "emailValue": "yzc.mert@icloud.com",
+      "social": "SOCIAL MEDIA",
+      "available": "AVAILABLE FREELANCER",
+      "expertise": "EXPERTISE",
+      "expertiseValue": "Full Stack, AI & LLM, UI/UX, DevOps",
+      "status": "STATUS",
+      "statusValue": "Available"
+    }
+  },
+  "footer": {
+    "marquee": "LET'S COLLABORATE — WORK TOGETHER — ",
+    "copyright": "ALL RIGHTS RESERVED"
+  },
+  "loading": {
+    "line1": "Full Stack",
+    "line2": "AI & LLM",
+    "line3": "Creative Developer"
+  }
+}

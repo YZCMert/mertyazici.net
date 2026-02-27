@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: "ss01", "ss02", "cv01";
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 2px;
+}
+
+/* Keyframe Animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes text-rotate-3d {
+  0%   { transform: perspective(1000px) rotateX(0deg); }
+  25%  { transform: perspective(600px) rotateX(90deg); }
+  50%  { transform: perspective(1000px) rotateX(180deg); }
+  75%  { transform: perspective(600px) rotateX(270deg); }
+  100% { transform: perspective(1000px) rotateX(360deg); }
+}
+
+@keyframes mask-reveal {
+  0% { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(100% at 50% 50%); }
+}
+
+@keyframes draw-line {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Utility classes */
+.marquee-left {
+  animation: marquee-left var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right var(--marquee-duration, 30s) linear infinite;
+}
+
+.text-rotate-3d {
+  animation: text-rotate-3d 12s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.draw-line-animation {
+  animation: draw-line 1.5s ease-out forwards;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Text stroke for outlined text */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-left, .marquee-right, .text-rotate-3d {
+    animation: none !important;
+  }
+}
