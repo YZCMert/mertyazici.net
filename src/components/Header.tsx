@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect, useRef } from 'react'
-import FlipLink from './animations/FlipLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons'
 
@@ -30,13 +29,13 @@ function LiveClock() {
 
   return (
     <div className="hidden items-center gap-2 md:flex">
-      <span className="flex items-center gap-1 font-mono text-[10px] tracking-[0.15em] text-red-500/70 uppercase">
-        <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-red-500" />
+      <span className="flex items-center gap-1.5 font-mono text-[15px] tracking-[0.15em] text-red-500/70 uppercase">
+        <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-red-500" />
         rec
       </span>
       <span
         ref={spanRef}
-        className="font-mono text-[10px] tracking-[0.2em] text-white/40"
+        className="font-mono text-[15px] tracking-[0.2em] text-white/40"
       />
     </div>
   )
@@ -59,7 +58,7 @@ function LanguageToggle() {
   return (
     <button
       onClick={toggle}
-      className="cursor-pointer border-none bg-transparent font-mono text-xs tracking-[0.3em] text-white/60 uppercase transition-colors hover:text-white"
+      className="cursor-pointer border-none bg-transparent font-mono text-lg tracking-[0.3em] text-white/60 uppercase transition-colors hover:text-white"
       style={{ perspective: '600px' }}
       aria-label="Change language"
     >
@@ -71,6 +70,70 @@ function LanguageToggle() {
         {i18n.language === 'tr' ? 'TR' : 'EN'}
       </motion.span>
     </button>
+  )
+}
+
+function ContactLink({ children }: { children: string }) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <span
+      className="relative inline-flex items-center gap-2.5"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Ping signal indicator */}
+      <span className="relative flex h-1.5 w-1.5">
+        <motion.span
+          className="absolute inline-flex h-full w-full rounded-full bg-emerald-400/75"
+          animate={{
+            scale: [1, 2.2, 1],
+            opacity: [0.7, 0, 0.7],
+          }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+      </span>
+
+      {/* Text with staggered wave */}
+      <span className="relative">
+        <span className="inline-flex">
+          {children.split('').map((char, i) => (
+            <motion.span
+              key={i}
+              className="inline-block"
+              animate={
+                hovered
+                  ? { y: [0, -2, 0], opacity: [0.8, 1, 0.8] }
+                  : { y: 0, opacity: 1 }
+              }
+              transition={{
+                duration: 0.5,
+                delay: hovered ? i * 0.035 : 0,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </motion.span>
+          ))}
+        </span>
+
+        {/* Underline from center */}
+        <motion.span
+          className="absolute -bottom-1 left-1/2 h-px bg-emerald-400/50"
+          initial={{ width: 0, x: 0 }}
+          animate={{
+            width: hovered ? '100%' : '0%',
+            marginLeft: hovered ? '-50%' : '0%',
+          }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        />
+      </span>
+    </span>
   )
 }
 
@@ -95,13 +158,13 @@ export default function Header() {
   const socialLinks = [
     { icon: faInstagram, href: 'https://instagram.com/yzc.mert', label: 'Instagram' },
     { icon: faLinkedinIn, href: 'https://www.linkedin.com/in/yzcmert/', label: 'LinkedIn' },
-    { icon: faGithub, href: 'https://github.com/jnrmert', label: 'GitHub' },
+    { icon: faGithub, href: 'https://github.com/YZCMert', label: 'GitHub' },
   ]
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-6 py-5 transition-all duration-500 md:px-10 ${
+        className={`fixed top-0 left-0 z-50 flex w-full items-center justify-between px-8 py-7 transition-all duration-500 md:px-14 ${
           scrolled ? 'bg-black/60 backdrop-blur-md' : 'bg-transparent mix-blend-difference'
         }`}
       >
@@ -109,7 +172,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link
             to="/"
-            className="font-sans text-xs font-medium tracking-[0.3em] uppercase text-white no-underline"
+            className="font-sans text-lg font-medium tracking-[0.3em] uppercase text-white no-underline"
           >
             &copy;M.YAZICI
           </Link>
@@ -122,17 +185,17 @@ export default function Header() {
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-7">
           {/* Social + Contact — desktop only */}
-          <div className="hidden items-center gap-5 md:flex">
+          <div className="hidden items-center gap-7 md:flex">
             {socialLinks.map(({ icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-white/40 transition-colors duration-300 hover:text-white">
-                <FontAwesomeIcon icon={icon} className="text-sm" />
+                <FontAwesomeIcon icon={icon} className="text-xl" />
               </a>
             ))}
-            <span className="h-4 w-px bg-white/10" />
-            <Link to="/iletisim" className="font-mono text-[10px] font-light tracking-[0.3em] text-white/80 uppercase no-underline">
-              <FlipLink>{t('nav.contact')}</FlipLink>
+            <span className="h-6 w-px bg-white/10" />
+            <Link to="/iletisim" className="font-mono text-[15px] font-light tracking-[0.3em] text-white/80 uppercase no-underline">
+              <ContactLink>{t('nav.contact')}</ContactLink>
             </Link>
           </div>
           {/* Language toggle — mobile only */}
@@ -143,7 +206,7 @@ export default function Header() {
       </header>
 
       {/* Mobile bottom social bar */}
-      <div className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-8 border-t border-white/[0.06] bg-black/70 py-3 backdrop-blur-md md:hidden">
+      <div className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-10 border-t border-white/[0.06] bg-black/70 py-4 backdrop-blur-md md:hidden">
         {socialLinks.map(({ icon, href, label }) => (
           <a
             key={label}
@@ -152,19 +215,19 @@ export default function Header() {
             rel="noopener noreferrer"
             className="flex flex-col items-center gap-1 text-white/40 transition-colors duration-300 active:text-white"
           >
-            <FontAwesomeIcon icon={icon} className="text-base" />
-            <span className="font-mono text-[8px] tracking-[0.15em] text-white/25 uppercase">{label}</span>
+            <FontAwesomeIcon icon={icon} className="text-xl" />
+            <span className="font-mono text-[11px] tracking-[0.15em] text-white/25 uppercase">{label}</span>
           </a>
         ))}
         <Link
           to="/iletisim"
           className="flex flex-col items-center gap-1 text-white/40 no-underline transition-colors duration-300 active:text-white"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="M22 4L12 13L2 4" />
           </svg>
-          <span className="font-mono text-[8px] tracking-[0.15em] text-white/25 uppercase">{t('nav.contact')}</span>
+          <span className="font-mono text-[11px] tracking-[0.15em] text-white/25 uppercase">{t('nav.contact')}</span>
         </Link>
       </div>
     </>

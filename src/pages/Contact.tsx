@@ -115,8 +115,11 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Mesajiniz gönderildi!')
-    setForm({ email: '', phone: '', message: '' })
+    const subject = encodeURIComponent('Portfolio İletişim Formu')
+    const body = encodeURIComponent(
+      `Email: ${form.email}\nTelefon: ${form.phone}\n\n${form.message}`
+    )
+    window.open(`mailto:yzc.mert@icloud.com?subject=${subject}&body=${body}`, '_self')
   }
 
   return (
@@ -209,7 +212,7 @@ export default function Contact() {
               href="mailto:yzc.mert@icloud.com"
               className="text-white/80 no-underline transition-colors duration-500 hover:text-white"
             >
-              <ScrambleText text={t('contact.info.emailValue')} />
+              {t('contact.info.emailValue')}
             </a>
           </InfoRow>
 
@@ -222,7 +225,7 @@ export default function Contact() {
               {[
                 { name: 'INSTAGRAM', href: 'https://instagram.com/yzc.mert' },
                 { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/yzcmert/' },
-                { name: 'GITHUB', href: 'https://github.com/jnrmert' },
+                { name: 'GITHUB', href: 'https://github.com/YZCMert' },
               ].map(({ name, href }) => (
                 <a
                   key={name}
@@ -239,7 +242,7 @@ export default function Contact() {
 
           <InfoRow label={t('contact.info.status')}>
             <div className="flex items-center gap-3">
-              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500/70" />
+              <span className="inline-flex h-2 w-2 rounded-full bg-yellow-500/70" />
               <span>{t('contact.info.statusValue')}</span>
             </div>
           </InfoRow>

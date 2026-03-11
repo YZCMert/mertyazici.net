@@ -11,7 +11,7 @@ interface FullscreenMenuProps {
 const socialLinks = [
   { label: 'INSTAGRAM', href: 'https://instagram.com/yzc.mert' },
   { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/yzcmert/' },
-  { label: 'GITHUB', href: 'https://github.com/jnrmert' },
+  { label: 'GITHUB', href: 'https://github.com/YZCMert' },
 ]
 
 const overlayVariants = {
