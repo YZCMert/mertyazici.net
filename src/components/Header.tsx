@@ -78,7 +78,7 @@ function LanguageToggle() {
       onClick={toggle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="cursor-pointer border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.06]"
+      className="cursor-pointer border-none bg-transparent px-0 py-0"
       style={{ perspective: '400px' }}
       aria-label="Change language"
     >
