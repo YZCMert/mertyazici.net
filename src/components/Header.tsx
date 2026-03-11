@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, animate } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -43,32 +43,69 @@ function LiveClock() {
 
 function LanguageToggle() {
   const { i18n } = useTranslation()
-  const [isFlipping, setIsFlipping] = useState(false)
+  const [hovered, setHovered] = useState(false)
+  const rotateX = useMotionValue(0)
+  const isFlipping = useRef(false)
+
+  const isTr = i18n.language === 'tr'
 
   function toggle() {
-    setIsFlipping(true)
-    const newLang = i18n.language === 'tr' ? 'en' : 'tr'
-    setTimeout(() => {
+    if (isFlipping.current) return
+    isFlipping.current = true
+
+    animate(rotateX, -90, {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1],
+    }).then(() => {
+      rotateX.set(0)
+      isFlipping.current = false
+      const newLang = isTr ? 'en' : 'tr'
       i18n.changeLanguage(newLang)
       localStorage.setItem('lang', newLang)
-      setIsFlipping(false)
-    }, 150)
+    })
   }
+
+  useEffect(() => {
+    if (isFlipping.current) return
+    animate(rotateX, hovered ? -25 : 0, {
+      duration: 0.35,
+      ease: [0.25, 0.1, 0.25, 1],
+    })
+  }, [hovered, isTr, rotateX])
 
   return (
     <button
       onClick={toggle}
-      className="cursor-pointer border-none bg-transparent font-mono text-lg tracking-[0.3em] text-white/60 uppercase transition-colors hover:text-white"
-      style={{ perspective: '600px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="cursor-pointer border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.06]"
+      style={{ perspective: '400px' }}
       aria-label="Change language"
     >
-      <motion.span
-        className="inline-block"
-        animate={{ rotateX: isFlipping ? 90 : 0 }}
-        transition={{ duration: 0.15 }}
-      >
-        {i18n.language === 'tr' ? 'TR' : 'EN'}
-      </motion.span>
+      <div className="relative" style={{ height: 24, width: 36 }}>
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            transformStyle: 'preserve-3d',
+            rotateX,
+          }}
+        >
+          {/* Front face — current language */}
+          <span
+            className="absolute inset-0 flex items-center justify-center font-mono text-sm font-semibold tracking-[0.3em] text-white/80 uppercase"
+            style={{ backfaceVisibility: 'hidden', transform: 'translateZ(12px)' }}
+          >
+            {isTr ? 'TR' : 'EN'}
+          </span>
+          {/* Bottom face — next language */}
+          <span
+            className="absolute inset-0 flex items-center justify-center font-mono text-sm font-semibold tracking-[0.3em] text-white/50 uppercase"
+            style={{ backfaceVisibility: 'hidden', transform: 'rotateX(90deg) translateZ(12px)' }}
+          >
+            {isTr ? 'EN' : 'TR'}
+          </span>
+        </motion.div>
+      </div>
     </button>
   )
 }
