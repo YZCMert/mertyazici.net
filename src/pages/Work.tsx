@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useState, useEffect } from 'react'
+import { lazy, Suspense, useMemo, useState, useEffect, Component, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 const WorkScene = lazy(() => import('@/components/three/WorkScene'))
+
+class WorkSceneBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false }
+  static getDerivedStateFromError() { return { hasError: true } }
+  render() { return this.state.hasError ? null : this.props.children }
+}
 
 export default function Work() {
   const { t } = useTranslation()
@@ -38,11 +44,13 @@ export default function Work() {
     >
       {/* 3D Background — full viewport, desktop only */}
       {isDesktop && (
-        <Suspense fallback={null}>
-          <div className="fixed inset-0 z-0">
-            <WorkScene />
-          </div>
-        </Suspense>
+        <WorkSceneBoundary>
+          <Suspense fallback={null}>
+            <div className="fixed inset-0 z-0">
+              <WorkScene />
+            </div>
+          </Suspense>
+        </WorkSceneBoundary>
       )}
 
       {/* Content */}

@@ -70,7 +70,7 @@ export const projects: Project[] = [
     description: 'Büyük ölçekli doküman göç projesi. Eski sistemlerden yeni platforma binlerce belgenin otomatik transferi ve dönüştürülmesi.',
     descriptionEn: 'Large-scale document migration project. Automated transfer and conversion of thousands of documents from legacy systems to new platform.',
     purpose: 'Eski sistemlerdeki dokümanlari yeni platforma sorunsuz aktararak, veri kaybini önlemek ve iş sürekliliğini sağlamak.',
-    purposeEn: 'To seamlessly migrate documents from legacy systems to the new platform, preventing data loss and ensuring business continuity.',
+    purposeEn: 'To migrate documents from legacy systems to the new platform, preventing data loss and ensuring business continuity.',
     architecture: [
       'PowerShell ile toplu dosya işleme pipeline',
       'Excel metadata eşleme ve doğrulama',

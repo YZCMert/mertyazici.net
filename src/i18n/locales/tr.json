@@ -38,10 +38,11 @@
       "allServices": "Tüm Hizmetler"
     },
     "selectedWork": "PORTFÖYÜM",
+    "showcase": "ÖNE ÇIKAN PROJELER",
     "allWork": "Tüm Projeler",
     "ctaHeading": "Birlikte harika şeyler yaratalım",
     "ctaButton": "İletişime Geç",
-    "ctaAvailable": "YENİ PROJELER İÇİN MÜSAİT"
+    "ctaAvailable": "PROBIZ YAZILIM'DA ÇALIŞIYOR"
   },
   "about": {
     "title": "HAKKIMDA",
@@ -54,7 +55,7 @@
       "projectsLabel": "PROJE",
       "location": "KOCAELİ, TR",
       "locationLabel": "KONUM",
-      "status": "MÜSAİT",
+      "status": "ÇALIŞIYOR",
       "statusLabel": "DURUM"
     },
     "expertise": {
@@ -147,12 +148,12 @@
       "expertise": "İŞ ALANLARI",
       "expertiseValue": "Full Stack, AI & LLM, UI/UX, DevOps",
       "status": "DURUM",
-      "statusValue": "Müsait"
+      "statusValue": "Çalışıyor — Probiz Yazılım"
     }
   },
   "footer": {
-    "cta": "Birlikte bir şeyler yaratalım",
-    "available": "Müsait",
+    "cta": "Geleceğin teknolojisi bugün yazılıyor",
+    "available": "Çalışıyor — Probiz Yazılım",
     "marquee": "BİRLİKTE ÇALIŞALIM — LET'S COLLABORATE — ",
     "copyright": "TÜM HAKLARI SAKLIDIR"
   },

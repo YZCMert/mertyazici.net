@@ -55,14 +55,12 @@ export default function About() {
       exit="exit"
       className="mx-auto min-h-screen w-full max-w-7xl px-6 pt-32 pb-20 md:px-16 lg:px-24"
     >
-      {/* Title */}
       <div className="mx-auto mb-20 max-w-5xl">
         <h1 className="font-display text-5xl font-normal tracking-wide text-white/95 md:text-7xl lg:text-8xl">
           <TextReveal text={t('about.title')} mode="character" trigger="immediate" delay={0.1} />
         </h1>
       </div>
 
-      {/* Bio Section */}
       <div className="mx-auto mb-24 max-w-5xl">
         <p className="font-display text-2xl font-normal leading-[1.4] text-white/70 md:text-3xl lg:text-4xl">
           <TextReveal text={t('about.bio')} mode="word" trigger="inView" className="text-white/70" />
@@ -82,7 +80,6 @@ export default function About() {
         <SectionDivider />
       </div>
 
-      {/* Stats Grid */}
       <div className="mx-auto mb-24 max-w-5xl">
         <StaggerReveal className="grid grid-cols-2 md:grid-cols-4" staggerDelay={0.15}>
           <CounterAnimation
@@ -103,7 +100,7 @@ export default function About() {
                 {t('about.stats.statusLabel')}
               </span>
               <div className="flex items-center gap-3">
-                <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500/70" />
+                <span className="inline-flex h-2 w-2 rounded-full bg-yellow-500/70" />
                 <motion.span
                   className="font-display text-3xl font-normal tracking-wide text-white/90"
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -123,7 +120,6 @@ export default function About() {
         <SectionDivider />
       </div>
 
-      {/* Expertise Areas */}
       <div className="mx-auto max-w-5xl">
         <motion.h2
           className="mb-12 font-mono text-[10px] font-light tracking-[0.5em] text-white/35 uppercase"

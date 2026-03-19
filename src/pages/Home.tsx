@@ -10,6 +10,7 @@ import SectionDivider from '@/components/animations/SectionDivider'
 import StaggerReveal from '@/components/animations/StaggerReveal'
 import MagneticButton from '@/components/animations/MagneticButton'
 import ScrambleText from '@/components/animations/ScrambleText'
+import ProjectShowcase from '@/components/ProjectShowcase'
 import { projects } from '@/data/projects'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode, faBrain, faPenRuler, faServer, faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -47,7 +48,6 @@ export default function Home() {
       animate="animate"
       exit="exit"
     >
-      {/* ===== HERO ===== */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black" />
 
@@ -156,7 +156,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* ===== SECTION 1: INTRO ===== */}
       <section className="px-4 py-40 md:px-10 lg:px-20">
         <div className="mx-auto max-w-6xl text-center">
           <h2
@@ -180,7 +179,6 @@ export default function Home() {
         <SectionDivider />
       </div>
 
-      {/* ===== SECTION 2: EXPERTISE ===== */}
       <section className="px-4 py-40 md:px-10 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <motion.div
@@ -225,10 +223,10 @@ export default function Home() {
           >
             <Link
               to="/hizmetler"
-              className="group inline-flex items-center gap-4 font-mono text-[13px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
+              className="group inline-flex items-center gap-4 border border-white/20 px-8 py-3 font-mono text-[11px] font-medium tracking-[0.3em] text-white/60 uppercase no-underline transition-all duration-500 hover:border-white/50 hover:bg-white/[0.04] hover:text-white"
             >
               <ScrambleText text={t('home.expertise.allServices')} />
-              <FontAwesomeIcon icon={faArrowRight} className="text-[13px] transition-transform duration-500 group-hover:translate-x-1" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-[11px] transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>
@@ -238,7 +236,6 @@ export default function Home() {
         <SectionDivider />
       </div>
 
-      {/* ===== SECTION 3: SELECTED WORK ===== */}
       <section className="px-4 py-40 md:px-10 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <motion.div
@@ -282,10 +279,10 @@ export default function Home() {
           >
             <Link
               to="/calismalar"
-              className="group inline-flex items-center gap-4 font-mono text-[13px] font-light tracking-[0.3em] text-white/40 uppercase no-underline transition-colors duration-500 hover:text-white/70"
+              className="group inline-flex items-center gap-4 border border-white/20 px-8 py-3 font-mono text-[11px] font-medium tracking-[0.3em] text-white/60 uppercase no-underline transition-all duration-500 hover:border-white/50 hover:bg-white/[0.04] hover:text-white"
             >
               <ScrambleText text={t('home.allWork')} />
-              <FontAwesomeIcon icon={faArrowRight} className="text-[13px] transition-transform duration-500 group-hover:translate-x-1" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-[11px] transition-transform duration-500 group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>
@@ -295,7 +292,12 @@ export default function Home() {
         <SectionDivider />
       </div>
 
-      {/* ===== SECTION 4: CTA ===== */}
+      <ProjectShowcase />
+
+      <div className="mx-auto max-w-6xl px-4 md:px-10 lg:px-20">
+        <SectionDivider />
+      </div>
+
       <section className="px-4 py-48 md:px-10 lg:px-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <motion.h2
@@ -321,18 +323,6 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <motion.div
-            className="mt-14 flex items-center gap-3"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500/70" />
-            <span className="font-mono text-[9px] font-light tracking-[0.4em] text-white/35 uppercase">
-              {t('home.ctaAvailable')}
-            </span>
-          </motion.div>
         </div>
       </section>
     </motion.div>
